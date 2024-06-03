@@ -11,6 +11,7 @@
     <artifactId>application</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>de.unibayreuth.se.teaching.list</groupId>
             <artifactId>business</artifactId>

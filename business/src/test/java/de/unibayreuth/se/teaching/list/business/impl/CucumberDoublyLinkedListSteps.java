@@ -38,6 +38,10 @@ public class CucumberDoublyLinkedListSteps {
         values.forEach(list::append);
         arrayFromValues = values.stream().mapToDouble(Double::doubleValue).toArray();
     }
+    @Given("a list with elements:")
+    public void aListWithElements(List<Double> values) {
+        values.forEach(list::append);
+    }
 
     // When -----------------------------------------------------------------------
 
@@ -57,6 +61,11 @@ public class CucumberDoublyLinkedListSteps {
         logger.info("%s not implemented yet.".formatted(Thread.currentThread().getStackTrace()[1].getMethodName()));
     }
 
+    @When("I insert an element with value {double}")
+    public void iInsertAnElementWithValue(double value) {
+        list.insert(value);
+    }
+
     // Then -----------------------------------------------------------------------
 
     @Then("^the list should contain that element$")
@@ -64,7 +73,7 @@ public class CucumberDoublyLinkedListSteps {
         Assertions.assertArrayEquals(new double[]{value}, list.asArray());
     }
 
-    @Then("^the array should contain the same elements in the same order$")
+    @Then("^the array should contain the same elements in the same order$") 
     public void theArrayShouldContainTheSameElementsInTheSameOrder() {
         Assertions.assertArrayEquals(arrayFromValues, arrayFromList);
     }

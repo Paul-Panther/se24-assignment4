@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
@@ -37,6 +38,12 @@ public class ListController {
         return ResponseEntity.ok(listService.get().stream()
                 .map(this::toDto)
                 .toList());
+    }
+
+    @DeleteMapping(value = "/list")
+    public ResponseEntity<List<Value>> emptyList() {
+        listService.clear();
+        return ResponseEntity.ok(listService.get());
     }
 
     /**
