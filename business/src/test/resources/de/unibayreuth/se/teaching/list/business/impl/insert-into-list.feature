@@ -16,6 +16,7 @@ Feature: InsertIntoListAcceptanceTests
       | 0.4 |
     When I insert an element with value 0.3
     Then the list should contain 3 elements
+    And the list should be sorted
     And the list should contain the elements in the following order:
       | 0.2 |
       | 0.3 |
